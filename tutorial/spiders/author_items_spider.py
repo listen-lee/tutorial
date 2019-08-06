@@ -2,6 +2,7 @@ import scrapy
 from scrapy.loader import ItemLoader
 from tutorial.items import TutorialItem
 
+
 class AuthorSpider(scrapy.Spider):
     name = 'author-items'
     start_urls = ['http://quotes.toscrape.com/']
