@@ -20,8 +20,12 @@ class AuthorSpider(scrapy.Spider):
             return response.css(query).get(default='').strip()
 
         l = ItemLoader(item=TutorialItem(), response=response)
-        yield {
-            'name': extract_with_css('h3.author-title::text'),
-            'birthday': extract_with_css('.author-born-date::text'),
-            'bio': extract_with_css('.author-description::text')
-        }
+        l.add_css('h3.author-title::text')
+        l.add_css('.author-born-date::text')
+        l.add_css('.author-description::text')
+        return l.load_item()
+        # yield {
+        #     'name': extract_with_css('h3.author-title::text'),
+        #     'birthday': extract_with_css('.author-born-date::text'),
+        #     'bio': extract_with_css('.author-description::text')
+        # }
