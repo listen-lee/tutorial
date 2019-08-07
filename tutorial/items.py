@@ -11,6 +11,6 @@ import scrapy
 class TutorialItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    name = scrapy.Field
+    name = scrapy.Field()
     birthday = scrapy.Field(serializer=str)
-    bio = scrapy.Field
+    bio = scrapy.Field()
